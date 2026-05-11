@@ -1,0 +1,33 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# next.js
+.next
+out
+build
+dist
+
+# env
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# misc
+.DS_Store
+desktop.ini
+*.log
+*.pem
+.vercel
+.turbo
+.idea
+.vscode
+
+# typescript
+*.tsbuildinfo
+
+# claude code — local-only settings (machine-specific permissions)
+.claude/settings.local.json

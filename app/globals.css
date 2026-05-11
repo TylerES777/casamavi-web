@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — refined warmth, editorial trattoria */
+  --color-paper: #f5ede0;
+  --color-paper-warm: #efe4d2;
+  --color-paper-deep: #e8dac0;
+  --color-ivory: #faf6ee;
+  --color-ink: #2a1a0e;
+  --color-ink-soft: #5c4332;
+  --color-ink-muted: #8a7361;
+  --color-terracotta: #c84b2c;
+  --color-terracotta-deep: #a83a1f;
+  --color-wine: #8b1f2a;
+  --color-espresso: #3d2818;
+  --color-espresso-deep: #1f1208;
+  --color-mustard: #d4a24c;
+  --color-olive: #7a8b3f;
+
+  /* Typography — Fraunces (display serif) + Inter Tight (humanist sans) */
+  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), "Cormorant Garamond", Georgia, serif;
+}
+
+/* Base */
+html,
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-terracotta);
+  color: var(--color-ivory);
+}
+
+/* Display serif gets optical sizing for warmth */
+.font-serif {
+  font-optical-sizing: auto;
+}
+
+/* Custom utilities */
+@utility text-eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@utility text-eyebrow-sm {
+  font-size: 0.625rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Hairline divider (mustard dot in middle) */
+@utility hairline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-mustard);
+}
+
+/* Disable iOS tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
