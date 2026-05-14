@@ -2,8 +2,13 @@ import { Button } from "@/components/ui/Button";
 import { Hairline } from "@/components/ui/Hairline";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { FEATURED_DISHES } from "@/lib/constants";
+import { STOCK } from "@/lib/stock-images";
 
-const TONES = ["warm", "ember", "wine"] as const;
+const DISH_IMAGES = [
+  STOCK.dishes.margherita,
+  STOCK.dishes.carbonara,
+  STOCK.dishes.lasagna,
+] as const;
 
 export function FeaturedDishes() {
   return (
@@ -39,7 +44,8 @@ export function FeaturedDishes() {
               <PlaceholderImage
                 alt={dish.alt}
                 aspect="4/5"
-                tone={TONES[idx]}
+                src={DISH_IMAGES[idx]}
+                sizes="(min-width: 768px) 33vw, 100vw"
                 className="mb-7"
               />
 

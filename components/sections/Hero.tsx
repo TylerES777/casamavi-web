@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { OpenStatusBadge } from "@/components/ui/OpenStatusBadge";
 import { CONTACT } from "@/lib/constants";
+import { STOCK } from "@/lib/stock-images";
 
 export function Hero() {
   return (
@@ -8,17 +10,25 @@ export function Hero() {
       aria-label="Casa Mavi · Inicio"
       className="relative w-full h-[100svh] min-h-[680px] max-h-[1000px] overflow-hidden bg-espresso-deep"
     >
-      {/* Photo placeholder — warm trattoria gradient evoking firelight + dim interior */}
+      {/* Background photo */}
       <div className="absolute inset-0">
+        <Image
+          src={STOCK.hero}
+          alt="Pizza napolitana saliendo del horno de piedra"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        {/* Warm color wash to keep palette consistent with the brand */}
         <div
           aria-hidden="true"
-          className="absolute inset-0"
+          className="absolute inset-0 mix-blend-multiply"
           style={{
             background: `
-              radial-gradient(ellipse 70% 55% at 28% 35%, rgba(212, 162, 76, 0.22), transparent 60%),
-              radial-gradient(ellipse 60% 50% at 78% 70%, rgba(200, 75, 44, 0.28), transparent 65%),
-              radial-gradient(ellipse 80% 60% at 50% 100%, rgba(31, 18, 8, 0.85), transparent 70%),
-              linear-gradient(180deg, #2a1810 0%, #3d2818 45%, #1f1208 100%)
+              radial-gradient(ellipse 80% 60% at 30% 30%, rgba(74, 46, 28, 0.55), transparent 60%),
+              radial-gradient(ellipse 70% 60% at 75% 70%, rgba(139, 31, 42, 0.45), transparent 65%),
+              linear-gradient(180deg, rgba(42, 24, 16, 0.35) 0%, rgba(31, 18, 8, 0.55) 100%)
             `,
           }}
         />
@@ -28,13 +38,9 @@ export function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(31,18,8,0.0) 0%, rgba(31,18,8,0.1) 35%, rgba(31,18,8,0.55) 75%, rgba(31,18,8,0.85) 100%)",
+              "linear-gradient(180deg, rgba(31,18,8,0.15) 0%, rgba(31,18,8,0.25) 35%, rgba(31,18,8,0.65) 75%, rgba(31,18,8,0.92) 100%)",
           }}
         />
-        {/* Placeholder hint */}
-        <span className="absolute top-24 right-6 md:right-10 lg:right-16 text-ivory/35 text-[0.55rem] tracking-[0.4em] uppercase">
-          Hero photography · placeholder
-        </span>
       </div>
 
       {/* Content */}

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Tone = "warm" | "ember" | "wine" | "neutral" | "shadow";
 type Aspect = "4/5" | "3/4" | "1/1" | "16/9" | "3/2" | "16/10" | "21/9";
 
@@ -46,6 +48,9 @@ export function PlaceholderImage({
   fill = false,
   showLabel = true,
   label = "Foto · placeholder",
+  src,
+  sizes,
+  priority = false,
 }: {
   alt: string;
   aspect?: Aspect;
@@ -54,15 +59,33 @@ export function PlaceholderImage({
   fill?: boolean;
   showLabel?: boolean;
   label?: string;
+  /** Optional real image URL. When provided, renders via next/image. */
+  src?: string;
+  /** Required when `src` is set to pick the right responsive variant. */
+  sizes?: string;
+  priority?: boolean;
 }) {
+  const wrapperClass = `relative overflow-hidden ${
+    fill ? "absolute inset-0" : ASPECT_CLASS[aspect]
+  } ${className}`;
+
+  if (src) {
+    return (
+      <div className={wrapperClass}>
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          priority={priority}
+          sizes={sizes ?? "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   return (
-    <div
-      role="img"
-      aria-label={alt}
-      className={`relative overflow-hidden ${
-        fill ? "absolute inset-0" : ASPECT_CLASS[aspect]
-      } ${className}`}
-    >
+    <div role="img" aria-label={alt} className={wrapperClass}>
       <div
         aria-hidden="true"
         className="absolute inset-0"

@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { CONTACT, STATS } from "@/lib/constants";
+import { STOCK } from "@/lib/stock-images";
 
 export function ReservationBlock() {
   return (
@@ -7,22 +9,27 @@ export function ReservationBlock() {
       aria-labelledby="reserva-heading"
       className="relative bg-espresso-deep overflow-hidden"
     >
-      {/* Moody backdrop placeholder — wine + ember */}
+      {/* Backdrop photo — bar / interior */}
+      <Image
+        src={STOCK.reservationBackdrop}
+        alt=""
+        aria-hidden="true"
+        fill
+        sizes="100vw"
+        className="object-cover"
+      />
+      {/* Color wash to lock in brand palette + ensure legibility */}
       <div
         aria-hidden="true"
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 65% 55% at 25% 30%, rgba(139, 31, 42, 0.45), transparent 65%),
-            radial-gradient(ellipse 60% 50% at 80% 75%, rgba(212, 162, 76, 0.20), transparent 65%),
-            radial-gradient(ellipse 55% 45% at 50% 100%, rgba(31, 18, 8, 0.85), transparent 70%),
-            linear-gradient(180deg, #2a1810 0%, #1a0a0c 50%, #1f1208 100%)
+            radial-gradient(ellipse 65% 55% at 25% 30%, rgba(139, 31, 42, 0.55), transparent 65%),
+            radial-gradient(ellipse 60% 50% at 80% 75%, rgba(212, 162, 76, 0.18), transparent 65%),
+            linear-gradient(180deg, rgba(42, 24, 16, 0.85) 0%, rgba(26, 10, 12, 0.92) 50%, rgba(31, 18, 8, 0.95) 100%)
           `,
         }}
       />
-      <span className="absolute top-6 right-6 md:right-10 lg:right-16 text-ivory/30 text-[0.55rem] tracking-[0.4em] uppercase z-10">
-        Bar · placeholder
-      </span>
 
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-10 lg:px-16 py-32 md:py-40">
         {/* Header */}

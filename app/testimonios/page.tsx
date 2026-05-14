@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { Hairline } from "@/components/ui/Hairline";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { GALLERY_ITEMS, TESTIMONIALS, TRIPADVISOR_URL } from "@/lib/constants";
+import { STOCK } from "@/lib/stock-images";
 
 export const metadata = {
   title: "Testimonios y Galería · Casa Mavi",
@@ -124,12 +125,13 @@ export default function TestimoniosPage() {
 
           {/* Masonry-style gallery using CSS columns */}
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 md:gap-6 [&>*]:mb-5 md:[&>*]:mb-6 [&>*]:break-inside-avoid">
-            {GALLERY_ITEMS.map((item) => (
+            {GALLERY_ITEMS.map((item, idx) => (
               <PlaceholderImage
                 key={item.id}
                 alt={item.alt}
                 aspect={item.aspect}
-                tone={item.tone}
+                src={STOCK.gallery[idx]}
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="border border-ink/10"
               />
             ))}

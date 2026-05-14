@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { Hairline } from "@/components/ui/Hairline";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { CONTACT } from "@/lib/constants";
+import { STOCK } from "@/lib/stock-images";
 
 export const metadata = {
   title: "Sobre Nosotros · Casa Mavi",
@@ -103,10 +104,10 @@ export default function SobreNosotrosPage() {
           {/* Photo */}
           <div className="lg:col-span-5 lg:sticky lg:top-32">
             <PlaceholderImage
-              alt="El equipo de Casa Mavi en el horno de piedra"
+              alt="El horno de piedra en plena cocción · Casa Mavi"
               aspect="4/5"
-              tone="ember"
-              label="Foto del equipo · placeholder"
+              src={STOCK.horno}
+              sizes="(min-width: 1024px) 42vw, 100vw"
             />
           </div>
 
