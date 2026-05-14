@@ -1,9 +1,13 @@
 import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Hairline } from "@/components/ui/Hairline";
-import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
 import { SocialIcons } from "@/components/ui/SocialIcons";
-import { CONTACT, HOURS, MAP_DIRECTIONS_URL } from "@/lib/constants";
+import {
+  CONTACT,
+  HOURS,
+  MAP_DIRECTIONS_URL,
+  MAP_EMBED_URL,
+} from "@/lib/constants";
 
 function InfoRow({
   icon: Icon,
@@ -79,44 +83,28 @@ export function LocationSection() {
 
         {/* Map + Info grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-20 items-start">
-          {/* Map placeholder — wire up real Google Maps embed when assets land */}
+          {/* Google Maps embed */}
           <div>
+            <div className="relative aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] overflow-hidden border border-ink/10 bg-paper-warm">
+              <iframe
+                title="Mapa de Casa Mavi en Av. de los Boliches, 106, Fuengirola"
+                src={MAP_EMBED_URL}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 0 }}
+                allowFullScreen
+              />
+            </div>
             <a
               href={MAP_DIRECTIONS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="block group"
+              className="inline-flex items-center gap-2 mt-5 text-eyebrow-sm text-terracotta hover:text-terracotta-deep border-b border-terracotta/40 hover:border-terracotta-deep pb-1 transition-colors"
               aria-label="Ver Casa Mavi en Google Maps"
             >
-              <div className="relative">
-                <PlaceholderImage
-                  alt="Mapa de Casa Mavi en Av. de los Boliches, 106, Fuengirola"
-                  aspect="4/5"
-                  tone="warm"
-                  label="Mapa · placeholder"
-                  className="border border-ink/10"
-                />
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <span className="inline-flex items-center gap-3 px-5 py-3 bg-paper/90 backdrop-blur-sm border border-ink/15 group-hover:border-terracotta/40 transition-colors">
-                    <MapPin
-                      size={15}
-                      strokeWidth={1.5}
-                      className="text-terracotta"
-                    />
-                    <span className="text-eyebrow-sm text-ink group-hover:text-terracotta transition-colors">
-                      Av. de los Boliches, 106
-                    </span>
-                  </span>
-                </div>
-              </div>
-            </a>
-            <a
-              href={MAP_DIRECTIONS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-eyebrow-sm text-terracotta hover:text-terracotta-deep mt-5 border-b border-terracotta/40 hover:border-terracotta-deep pb-1 transition-colors"
-            >
-              Cómo llegar →
+              <MapPin size={13} strokeWidth={1.5} />
+              <span>Cómo llegar →</span>
             </a>
           </div>
 
