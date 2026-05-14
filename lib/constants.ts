@@ -98,7 +98,7 @@ export const STATS = [
   },
 ] as const;
 
-// Social URLs are placeholders — pull real handles from current site footer.
+// Real social URLs, verified against casamavi.es footer.
 export const SOCIAL_LINKS = [
   {
     name: "Instagram",
@@ -106,15 +106,15 @@ export const SOCIAL_LINKS = [
   },
   {
     name: "Facebook",
-    href: "https://www.facebook.com/casamavi.fuengirola",
+    href: "https://www.facebook.com/profile.php?id=100063558024245",
   },
   {
     name: "TripAdvisor",
-    href: "https://www.tripadvisor.com",
+    href: "https://www.tripadvisor.es/Restaurant_Review-g315915-d8753439",
   },
   {
     name: "TikTok",
-    href: "https://www.tiktok.com/@casamavi",
+    href: "https://www.tiktok.com/@casamavinapoliristopizza",
   },
 ] as const;
 
@@ -213,4 +213,5 @@ export const GALLERY_ITEMS = [
   { id: "g9", alt: "Mesa puesta para una cena en familia", aspect: "16/10" as const, tone: "warm" as const },
 ] as const;
 
-export const TRIPADVISOR_URL = "https://www.tripadvisor.com";
+export const TRIPADVISOR_URL =
+  "https://www.tripadvisor.es/Restaurant_Review-g315915-d8753439";
